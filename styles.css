@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Gujarati:wght@400;700&display=swap');
+
+body {
+  font-family: 'Noto Serif Gujarati', serif;
+}
+
+.body {
+  background-color: #F5F5F5;
+}
