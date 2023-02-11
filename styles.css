@@ -8,6 +8,7 @@ body {
   background-color: #F5F5F5;
   text-align: center;
   min-height: 100vh;
+  margin: 0;
 }
 
 /* Layout */
@@ -94,4 +95,19 @@ button {
   display: block;
   margin: 0;
   padding: 0;
+}
+
+/* Modal */
+.letter-modal {
+  display: none;
+  background-color: #ffc0cb;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 85%;
+  height: 70%;
+  opacity: .97;
 }
