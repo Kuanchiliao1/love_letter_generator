@@ -1,9 +1,97 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Gujarati:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap');
+
+html {box-sizing: border-box;}
+*, *::before, *::after {box-sizing: inherit;}
 
 body {
-  font-family: 'Noto Serif Gujarati', serif;
+  font-family: 'Love Ya Like A Sister', cursive, sans-serif;
+  background-color: #F5F5F5;
+  text-align: center;
+  min-height: 100vh;
 }
 
-.body {
-  background-color: #F5F5F5;
+/* Layout */
+.container {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 5fr 3fr 3fr;
+  row-gap: 1em;
+  column-gap: .5em;
+}
+
+.container > h1 {
+  grid-column: 1 / 4;
+  margin: 3rem 0 2rem 0;
+}
+
+.container > form {
+  grid-column: 1 / 4;
+}
+
+/* Typography */
+h1 {
+  font-size: 2.5rem;
+}
+
+.number-label,
+button {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+span.number-label {
+  font-size: 1.5em;
+  display: block;
+}
+
+/* Inputs and Components */
+input,
+textarea,
+button,
+.stat-container {
+  border-radius: 0.5em;
+  border: none;
+  padding: 0.5em;
+}
+
+input,
+textarea {
+  display: block;
+  width: 100%;
+  font-family: inherit;
+  background-color: #ffe7e5;
+  font-size: 1.5rem;
+  border: 2px #ffe7e5 solid;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: pink;
+}
+
+input#lover-name {
+  padding: 0.5em;
+  margin: 0.5em 0;
+}
+
+
+textarea {
+  resize: vertical;
+  height: 10em;
+  padding: .5em;
+}
+
+button {
+  background-color: #87DF9A;
+  border: none;
+  font-family: inherit;
+}
+
+.stat-container {
+  background-color: #FFC997;
+  display: block;
+  margin: 0;
+  padding: 0;
 }
