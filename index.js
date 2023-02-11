@@ -17,6 +17,10 @@ Game plan:
       - counts all the words in both inputs
 */
 
+// You must get your own API key from open AI and make your own API_key.js file!
+import secretKey from "./API_key.js"
+console.log(secretKey)
+
 const generateBtn = document.getElementById('generate-btn');
 const form = document.getElementById('form');
 const formData = new FormData(form)
@@ -27,6 +31,7 @@ const letterInfo = {
   length: ""
 }
 const slider = document.getElementById("length")
+
 slider.addEventListener("input", function() {
   const wordCountEl = document.getElementById("word-count")
   const wordCount = wordCountEl.value
@@ -57,16 +62,16 @@ generateBtn.addEventListener("click", (event)=> {
 
 function btnAction(event) {
   event.preventDefault()
-  letterInfo.giver = document.getElementById("giver").value
-  letterInfo.receiver =  document.getElementById("receiver").value
-  letterInfo.notes =  document.getElementById("notes").value
-  letterInfo.length =  document.getElementById("length").value
-  const { giver, receiver, notes, length } = letterInfo
+  let { giver, receiver, notes, length } = letterInfo
+  giver = document.getElementById("giver").value
+  receiver =  document.getElementById("receiver").value
+  notes =  document.getElementById("notes").value
+  length =  document.getElementById("length").value
 
   fetch("https://api.openai.com/v1/completions", {
     method: "POST",
     headers: {
-      'Authorization': "Bearer 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",
+      'Authorization': `Bearer ${secretKey.key}`,
       'Content-Type': "application/json",
     },
    body: JSON.stringify({
