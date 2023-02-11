@@ -11,6 +11,11 @@ body {
   margin: 0;
 }
 
+/* Utility */
+.flex {
+  display: flex;
+}
+
 /* Layout */
 .container {
   width: 80%;
@@ -64,6 +69,7 @@ textarea {
   background-color: #ffe7e5;
   font-size: 1.5rem;
   border: 2px #ffe7e5 solid;
+  margin-top: 1rem;
 }
 
 input:focus,
@@ -77,6 +83,15 @@ input#lover-name {
   margin: 0.5em 0;
 }
 
+.name-input-container {
+  gap: .5em;
+}
+
+.letter-length-input > input {
+  max-width: 90%;
+  margin: 0 auto;
+
+}
 
 textarea {
   resize: vertical;
@@ -88,6 +103,7 @@ button {
   background-color: #87DF9A;
   border: none;
   font-family: inherit;
+  cursor: pointer;
 }
 
 .stat-container {
@@ -95,6 +111,7 @@ button {
   display: block;
   margin: 0;
   padding: 0;
+  padding-top: .5rem;
 }
 
 /* Modal */
@@ -108,6 +125,27 @@ button {
   bottom: 0;
   margin: auto;
   width: 85%;
-  height: 70%;
+  height: 95%;
   opacity: .97;
+}
+
+.letter-modal > p {
+  max-width: 55ch;
+  margin: 1em auto;
+  font-size: 1.5rem;
+  padding-inline: 3em;
+}
+
+.letter-modal > p:first-child {
+  margin-top: 2.5em;
+}
+
+.close-modal-btn {
+  color: red;
+  width: 100px;
+  height: 100px;
+}
+
+.letter-modal > h3 {
+  font-size: 2.5rem;
 }

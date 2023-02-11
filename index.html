@@ -10,19 +10,24 @@
 </head>
 <body>
   <main class="container">
-    <h1>Love Letter Generator</h1>
-    <form action="GET" id="form">
-      <input id="lover-name" name="lover-name" type="text" placeholder="Enter the name of your love">
-      <textarea placeholder="Optional notes/requirements. (e.g. also mention that they snore a lot)" name="" id="love-notes"></textarea>
+    <h1>❤️Love Letter Generator❤️</h1>
+    <form action="#" id="form">
+      <div class="flex name-input-container">
+        <input id="giver" name="giver" type="text" placeholder="Enter your name" autocomplete="off">
+        <input id="receiver" name="receiver" type="text" placeholder="Enter the name of your love" autocomplete="off">
+      </div>
+      <textarea placeholder="Optional notes/requirements. (e.g. also mention that they snore a lot)" name="" id="notes"></textarea>
     </form>
-    <button id="generate-btn">Generate</button>
-    <p class="stat-container">Characters<span class="number-label">385</span></p>
-    <p class="stat-container">Words<span class="number-label">75</span></p>
+    <button id="generate-btn" type="submit">Generate</button>
+    <label class="stat-container letter-length-input">Letter length
+      <input id="length" type="range">
+    </label>
+    <p class="stat-container">Words<span id="word-count" class="number-label">75</span></p>
   </main>
   <div class="letter-modal" id="modal">
-    <h3>Your unique love letter</h3>
+    <h3>Your unique love letter is generating...</h3>
     <p id="love-letter-content"></p>
-    <button type="button" id="close-modal"></button>
+    <!-- <button type="button" id="close-modal"></button> -->
   </div>
 </body>
 </html>

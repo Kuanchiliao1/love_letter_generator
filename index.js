@@ -17,16 +17,17 @@ Game plan:
       - counts all the words in both inputs
 */
 
-let string = "count the characters of this string with spaces"
-console.log([...string].map(char => "lkj"))
-
-
-
 const generateBtn = document.getElementById('generate-btn');
 const form = document.getElementById('form');
 const formData = new FormData(form)
+const letterInfo = {
+  giver: "",
+  receiver: "",
+  notes: "",
+  length: ""
+}
+
 const modal = document.getElementById("modal")
-const deleteModalBtn = document.getElementById("close-modal")
 const letter = `
 My Dearest,
 
@@ -41,43 +42,56 @@ The love I have for you is so immense and so powerful, it's hard to put into wor
 Forever yours,
 
 [Your Name]`
-
 generateBtn.addEventListener("click", (event)=> {
   btnAction(event)
 })
 
-deleteModalBtn.addEventListener("click", function() {
-  modal.style.display = "none"
-})
-
 function btnAction(event) {
   event.preventDefault()
+  letterInfo.giver = document.getElementById("giver").value
+  letterInfo.receiver =  document.getElementById("receiver").value
+  letterInfo.notes =  document.getElementById("notes").value
+  letterInfo.length =  document.getElementById("length").value
+  const { giver, receiver, notes, length } = letterInfo
+
   fetch("https://api.openai.com/v1/completions", {
     method: "POST",
     headers: {
-      'Authorization': "Bearer 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",
+      'Authorization': "Bearer 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",
       'Content-Type': "application/json",
     },
    body: JSON.stringify({
       "prompt": `
-      Write a love letter 100 words long. Addressed to Bridgett from Tony.
+      Write a love letter ${length} words long addressed from ${giver} to ${receiver}. Assume this is the innerHTML of an HTML div element and format accordingly with p and br elements. Do not include br element in the signoff!
       Additional requirements/notes:
-      also mention that they snore a lot`,
-      "max_tokens": 200,
+      ${notes}
+      `,
+      "max_tokens": 250,
       "model": "text-davinci-003",
     })
   })
   .then(request => request.json())
   .then(data => {
-    let wordCount = data['choices'][0].text.split(" ").length
-    document.getElementById("love-letter-content").textContent = data['choices'][0].text + "the word count: " + wordCount
+    console.log(data)
+    const loveText = data['choices'][0].text
+    let wordCount = loveText.split(" ").length
+    renderModel(modal, data)
+    console.log("Word count: " + wordCount)
   })
-  const nameValue = document.getElementById("lover-name").value
-  const notesValue = document.getElementById("love-notes").value
-
 
   // formData.clear()
   modal.style.display = "block"
+}
+
+function renderModel(modalElement, data) {
+  modal.innerHTML = data['choices'][0].text
+  modalElement.style.display = "block"
+
+  // For deleting the modal
+  const deleteModalBtn = document.createElement("button").setAttribute("id", "close-modal-btn")
+  deleteModalBtn.addEventListener("click", function() {
+    modal.style.display = "none"
+  })
 }
 
 function getPrompt(nameValue, notesValue) {
