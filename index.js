@@ -26,6 +26,15 @@ const letterInfo = {
   notes: "",
   length: ""
 }
+const slider = document.getElementById("length")
+slider.addEventListener("input", function() {
+  const wordCountEl = document.getElementById("word-count")
+  const wordCount = wordCountEl.value
+  if (this.value !== wordCount ) {
+    wordCountEl.innerHTML = this.value
+  }
+})
+
 
 const modal = document.getElementById("modal")
 const letter = `
