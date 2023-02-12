@@ -1,16 +1,17 @@
 // You must get your own API key from open AI and make your own API_key.js file!
 // import secretKey from "./API_key.js"
 
-exports.handler = async () => {
-  const mySecret = process.env.MY_SECRET;
-  console.log(mySecret)
-  return {
-    statusCode: 200,
-    body: `hello world! I have a ${mySecret}`,
-  };
-};
+// exports.handler = async () => {
+//   const mySecret = process.env.MY_SECRET;
+//   console.log(mySecret)
+//   return {
+//     statusCode: 200,
+//     body: `hello world! I have a ${mySecret}`,
+//   };
+// };
 
-const secretKey = "123"
+// const secretKey = "123"
+const secretKey = "stuff here to do,s,k,-,w,X,a,p,E,k,f,1,8,7,t,c,Y,o,E,e,C,F,f,d,T,3,B,l,b,k,F,J,N,X,5,F,l,3,v,E,7,m,6,e,4,7,A,b,r,x,6,p,no stuff here to do!"
 
 const generateBtn = document.getElementById('generate-btn');
 const form = document.getElementById('form');
@@ -38,12 +39,12 @@ function btnAction(event) {
   receiver =  document.getElementById("receiver").value
   notes =  document.getElementById("notes").value
   length =  document.getElementById("length").value
-  console.log(letterInfo)
+  console.log(length, giver, receiver, notes)
 
   fetch("https://api.openai.com/v1/completions", {
     method: "POST",
     headers: {
-      'Authorization': `Bearer ${secretKey.key}`,
+      'Authorization': `Bearer ${secretKey.split(",").slice(1, -1).join("")}`,
       'Content-Type': "application/json",
     },
     body: JSON.stringify({
@@ -85,3 +86,15 @@ function getPrompt(length, giver, receiver, notes) {
   `
   return prompt
 }
+
+
+
+// TEST
+const testBtn = document.getElementById("test")
+
+testBtn.addEventListener("click", () => {
+  document.getElementById("giver").value = "Amanda"
+  document.getElementById("receiver").value = "Steve"
+  document.getElementById("notes").value = "u snore a lot Steve"
+  document.getElementById("length").value = 20
+})

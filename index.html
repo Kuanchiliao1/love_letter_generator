@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Love Letter Generator</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="index.js" defer type="module"></script>
 </head>
@@ -20,14 +21,17 @@
     </form>
     <button id="generate-btn" type="submit">Generate</button>
     <label class="stat-container letter-length-input">Letter length
-      <input id="length" type="range">
+      <input id="length" type="range" min="10" max="150">
     </label>
-    <p class="stat-container">Words<span id="word-count" class="number-label">50</span></p>
+    <p class="stat-container">Words<span id="word-count" class="number-label">85</span></p>
   </main>
   <div class="letter-modal" id="modal">
     <h3>Your unique love letter is generating...</h3>
     <p id="love-letter-content"></p>
     <!-- <button type="button" id="close-modal"></button> -->
   </div>
+  <button id="test">Test</button>
+  <button><i class="fas fa-spinner fa-pulse"></i></button>
+
 </body>
 </html>
