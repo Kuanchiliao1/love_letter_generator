@@ -47,8 +47,12 @@ button {
 }
 
 span.number-label {
-  font-size: 1.5em;
   display: block;
+  font-size: 1.5em;
+}
+
+.warning {
+  font-size: 1.2rem;
 }
 
 /* Inputs and Components */
@@ -112,12 +116,15 @@ button {
   margin: 0;
   padding: 0;
   padding-top: .5rem;
+  font-weight: 700;
+  font-size: 1.1rem;
 }
 
 /* Modal */
 .letter-modal {
   display: none;
   background-color: #ffc0cb;
+  background-size: cover;
   position: fixed;
   top: 0;
   left: 0;
@@ -148,4 +155,14 @@ button {
 
 .letter-modal > h3 {
   font-size: 2.5rem;
+}
+
+#test {
+  margin-top: 1.5em;
+  padding: .7em .5em;
+  background-color: rgb(179, 233, 251);
+}
+
+.hide {
+  visibility: hidden;
 }
