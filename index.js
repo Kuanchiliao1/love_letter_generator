@@ -9,7 +9,8 @@
 //     body: `hello world! I have a ${mySecret}`,
 //   };
 // };
-
+import randomLetterInfo from "./data.js"
+console.log(randomLetterInfo)
 // const secretKey = "123"
 const secretKey = "stuff here to do,s,k,-,w,X,a,p,E,k,f,1,8,7,t,c,Y,o,E,e,C,F,f,d,T,3,B,l,b,k,F,J,N,X,5,F,l,3,v,E,7,m,6,e,4,7,A,b,r,x,6,p,no stuff here to do!"
 
@@ -19,8 +20,9 @@ const formData = new FormData(form)
 const letterInfo = { giver, receiver, notes, length }
 const slider = document.getElementById("length")
 
+const wordCountEl = document.getElementById("word-count")
+
 slider.addEventListener("input", function() {
-  const wordCountEl = document.getElementById("word-count")
   const wordCount = wordCountEl.value
   if (this.value !== wordCount ) {
     wordCountEl.innerHTML = this.value
@@ -75,26 +77,41 @@ function renderModal(modalElement, data) {
   const deleteModalBtn = document.getElementById("close-modal")
   deleteModalBtn.addEventListener("click", function() {
     modal.style.display = "none"
+    resetModalHtml()
   })
 }
 
 function getPrompt(length, giver, receiver, notes) {
   const prompt = `
-    Write a love letter ${length} words long addressed from ${giver} to ${receiver}. Assume this is the innerHTML of an HTML div element and format accordingly with p and br elements. Do not include any br element in the sign-off! All text should be inside a p element but not inside a div.
+    Write a love letter exactly ${length} words long addressed from ${giver} to ${receiver}. Output must be in HTML paragraph elements.
     Additional requirements/notes:
     ${notes}
   `
   return prompt
 }
 
-
+function resetModalHtml() {
+  modal.innerHTML = `
+    <h3>Your unique love letter is generating  <i class="fas fa-spinner fa-pulse"></i></h3>
+    <p id="love-letter-content"></p>
+  `
+}
 
 // TEST
 const testBtn = document.getElementById("test")
 
 testBtn.addEventListener("click", () => {
-  document.getElementById("giver").value = "Amanda"
-  document.getElementById("receiver").value = "Steve"
-  document.getElementById("notes").value = "u snore a lot Steve"
-  document.getElementById("length").value = 20
+  const info = getRandomLetterInfo()
+  const { giver, receiver, notes } = info
+  document.getElementById("giver").value = giver
+  document.getElementById("receiver").value = receiver
+  document.getElementById("notes").value = notes
+  document.getElementById("length").value = 85
+  wordCountEl.innerText = 85
 })
+
+function getRandomLetterInfo() {
+  const len = randomLetterInfo.length
+  const randomIndex = Math.floor((Math.random() * len))
+  return randomLetterInfo[randomIndex]
+}
