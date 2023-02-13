@@ -16,6 +16,10 @@ body {
   display: flex;
 }
 
+.hide {
+  visibility: hidden;
+}
+
 /* Layout */
 .container {
   width: 80%;
@@ -121,6 +125,10 @@ button {
 }
 
 /* Modal */
+h1 {
+  font-size: 1.3rem;
+}
+
 .letter-modal {
   display: none;
   background-color: #ffc0cb;
@@ -132,7 +140,6 @@ button {
   bottom: 0;
   margin: auto;
   width: 85%;
-  height: 95%;
   opacity: .97;
 }
 
@@ -163,6 +170,44 @@ button {
   background-color: rgb(179, 233, 251);
 }
 
-.hide {
-  visibility: hidden;
+@media (max-width: 400px) {
+  .name-input-container {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  input#giver {
+    margin-top: 0;
+  }
+
+  input, textarea, .letter-modal > p {
+    font-size: 1rem;
+  }
+
+  .container {
+    display: block;
+  }
+
+  .stat-container {
+    margin-top: 1rem;
+  }
+
+  #generate-btn {
+    margin-top: 1rem;
+  }
+
+  #test {
+    margin-top: 1rem;
+    width: 80%;
+  }
+
+  span#word-count {
+    display: inline;
+    margin-left: .5rem;
+  }
+  
+  .letter-modal {
+    overflow-y: auto;
+  }
+
 }
