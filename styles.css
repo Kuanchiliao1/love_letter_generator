@@ -165,6 +165,10 @@ button {
   background-color: rgb(241, 187, 233);
 }
 
+.letter-modal {
+  overflow-y: auto;
+}
+
 @media (max-width: 400px) {
   h1,
   .letter-modal > h3 {
@@ -208,8 +212,8 @@ button {
     margin-left: .5rem;
   }
   
-  .letter-modal {
+  /* .letter-modal {
     overflow-y: auto;
-  }
+  } */
 
 }
