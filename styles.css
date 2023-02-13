@@ -86,10 +86,6 @@ textarea:focus {
   border-color: pink;
 }
 
-input#lover-name {
-  padding: 0.5em;
-  margin: 0.5em 0;
-}
 
 .name-input-container {
   gap: .5em;
@@ -125,10 +121,6 @@ button {
 }
 
 /* Modal */
-h1 {
-  font-size: 1.3rem;
-}
-
 .letter-modal {
   display: none;
   background-color: #ffc0cb;
@@ -164,13 +156,21 @@ h1 {
   font-size: 2.5rem;
 }
 
-#test {
+.random-fill-btn {
   margin-top: 1.5em;
-  padding: .7em .5em;
   background-color: rgb(179, 233, 251);
 }
 
+.clear-form-btn {
+  background-color: rgb(241, 187, 233);
+}
+
 @media (max-width: 400px) {
+  h1,
+  .letter-modal > h3 {
+    font-size: 1.3rem;
+  }
+
   .name-input-container {
     flex-direction: column;
     gap: 0;
@@ -192,13 +192,15 @@ h1 {
     margin-top: 1rem;
   }
 
-  #generate-btn {
-    margin-top: 1rem;
-  }
-
-  #test {
+  .random-fill-btn,
+  .clear-form-btn,
+  .generate-btn {
     margin-top: 1rem;
     width: 80%;
+  }
+
+  .generate-btn {
+    width: 100%;
   }
 
   span#word-count {
