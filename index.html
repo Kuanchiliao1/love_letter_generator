@@ -21,6 +21,7 @@
       <textarea placeholder="Optional notes/requirements. (e.g. also mention that they snore a lot)" name="" id="notes"></textarea>
     </form>
     <button id="generate-btn" type="submit"><i class="hide fas fa-spinner fa-pulse"></i> Generate <i class="hide fas fa-spinner fa-pulse"></i></button>
+    <!-- Question: I wanted to put this range input inside the form, but did not want to completely screw up the CSS. I ended up not using the form element since this input was on the outside. Is there a better way to do this? -->
     <label class="stat-container letter-length-input">Letter length
       <input id="length" type="range" min="10" max="150" style="padding:0;">
     </label>
@@ -30,7 +31,8 @@
     <h3>Your unique love letter is generating  <i class="fas fa-spinner fa-pulse"></i></h3>
     <p id="love-letter-content"></p>
   </div>
-  <button id="test">Fill with Random</button>
-  <p class="warning">Warning: these are extremely lame</p>
+  <button id="random-fill-btn">Fill with Random</button>
+  <button id="clear-form-btn">Clear</button>
+  <p class="warning">Warning: these are a bit lame</p>
 </body>
 </html>
