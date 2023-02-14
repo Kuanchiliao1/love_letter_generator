@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap');
 
+/* Just wondering where I can improve upon my responsive design and HTML/CSS organization */
+
 html {box-sizing: border-box;}
 *, *::before, *::after {box-sizing: inherit;}
 
@@ -20,7 +22,7 @@ body {
   visibility: hidden;
 }
 
-/* Layout */
+/* Grid Layout */
 .container {
   width: 80%;
   margin: 0 auto;
@@ -120,6 +122,15 @@ button {
   font-size: 1.1rem;
 }
 
+.random-fill-btn {
+  margin-top: 1.5em;
+  background-color: rgb(179, 233, 251);
+}
+
+.clear-form-btn {
+  background-color: rgb(241, 187, 233);
+}
+
 /* Modal */
 .letter-modal {
   display: none;
@@ -147,29 +158,38 @@ button {
 }
 
 .close-modal-btn {
-  color: red;
-  width: 100px;
-  height: 100px;
+  margin-bottom: 1em;
 }
 
 .letter-modal > h3 {
   font-size: 2.5rem;
 }
 
-.random-fill-btn {
-  margin-top: 1.5em;
-  background-color: rgb(179, 233, 251);
-}
-
-.clear-form-btn {
-  background-color: rgb(241, 187, 233);
-}
-
 .letter-modal {
   overflow-y: auto;
 }
 
-@media (max-width: 400px) {
+/* Hover/Focus */
+
+button:hover.clear-form-btn,
+button:focus.clear-form-btn {
+  background-color: pink;
+}
+
+.generate-btn:hover,
+.generate-btn:focus,
+.close-modal-btn:hover,
+.close-modal-btn:focus {
+  background-color: lightgreen;
+}
+
+.random-fill-btn:hover,
+.generate-btn:focus {
+  background-color: rgb(222, 242, 249);
+}
+
+/* For mobile */
+@media (max-width: 550px) {
   h1,
   .letter-modal > h3 {
     font-size: 1.3rem;
@@ -211,9 +231,4 @@ button {
     display: inline;
     margin-left: .5rem;
   }
-  
-  /* .letter-modal {
-    overflow-y: auto;
-  } */
-
 }
